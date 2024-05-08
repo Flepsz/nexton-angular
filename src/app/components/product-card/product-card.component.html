@@ -1,0 +1,29 @@
+<div class="w-80 flex flex-col gap-3">
+  <div
+    class="flex justify-center items-center bg-foreground/5 rounded-xl relative"
+  >
+    <img
+      class="py-10 h-80 mix-blend-multiply"
+      [src]="thumbnail"
+      [alt]="item.id + ' Img'"
+    />
+    <div
+      class="absolute right-0 top-0 p-2 m-2 bg-white dark:bg-black rounded-full cursor-pointer hover:opacity-70"
+    >
+      <hlm-icon
+        size="sm"
+        name="lucideShoppingBag"
+        class="text-foreground dark:text-white"
+      />
+    </div>
+  </div>
+  <div class="flex justify-around gap-2">
+    <div>
+      <h4 class="text-foreground font-semibold">{{ item.title | truncate }}</h4>
+      <p class="text-foreground/70 text-sm">{{ category }}</p>
+    </div>
+    <div>
+      <h4 class="text-foreground">{{ item.price | currency : "BRL" }}</h4>
+    </div>
+  </div>
+</div>

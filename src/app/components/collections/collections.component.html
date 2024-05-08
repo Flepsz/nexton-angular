@@ -1,0 +1,17 @@
+<div class="flex gap-12 justify-between">
+  <div
+    *ngFor="let item of collections"
+    class="flex rounded-xl w-full justify-between px-7 py-10 bg-foreground/5"
+  >
+    <div class="pr-0 xl:pr-5">
+      <h4 class="font-semibold text-lg text-foreground">{{ item.title }}</h4>
+      <p class="text-foreground/70 text-sm">{{ item.desc }}</p>
+    </div>
+    <div class="flex gap-1 items-center pl-2 transition-opacity hover:opacity-70">
+      <a [routerLink]="item.href" class="text-xs text-foreground/70 uppercase"
+        >Shop Now</a
+      >
+      <hlm-icon size="sm" name="lucideArrowRight" class="text-foreground/70" />
+    </div>
+  </div>
+</div>
