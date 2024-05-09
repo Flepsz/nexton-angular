@@ -24,6 +24,8 @@
     "@angular/ssr": "^17.3.6",
     "@ng-icons/core": "^25.6.1",
     "@ng-icons/lucide": "^26.3.0",
+    "@ngneat/overview": "^6.0.0",
+    "@ngxpert/hot-toast": "^2.0.0",
     "@spartan-ng/ui-core": "^0.0.1-alpha.347",
     "@spartan-ng/ui-label-brain": "0.0.1-alpha.347",
     "@spartan-ng/ui-switch-brain": "0.0.1-alpha.347",

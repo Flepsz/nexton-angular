@@ -1,4 +1,4 @@
-<div class="w-80 flex flex-col gap-3">
+<div (click)="goToDetails()" class="w-80 flex flex-col gap-3 hover:cursor-pointer">
   <div
     class="flex justify-center items-center bg-foreground/5 rounded-xl relative"
   >
@@ -7,15 +7,16 @@
       [src]="thumbnail"
       [alt]="item.id + ' Img'"
     />
-    <div
-      class="absolute right-0 top-0 p-2 m-2 bg-white dark:bg-black rounded-full cursor-pointer hover:opacity-70"
+    <button
+      (click)="handleAddToCart()"
+      class="absolute inline-flex z-20 right-0 top-0 p-2.5 m-2 bg-white dark:bg-black rounded-full cursor-pointer hover:opacity-70"
     >
       <hlm-icon
         size="sm"
         name="lucideShoppingBag"
         class="text-foreground dark:text-white"
       />
-    </div>
+    </button>
   </div>
   <div class="flex justify-around gap-2">
     <div>

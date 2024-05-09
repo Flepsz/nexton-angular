@@ -21,6 +21,12 @@ export class ProductsService {
     );
   }
 
+  getOneProduct(id: string) {
+    return this.http.get<Result>(
+      this.con + `items/${id}`
+    );
+  }
+
   getDesc(itemId: string) {
     return this.http.get<ProductDescription>(
       this.con + `items/${itemId}/description`
