@@ -1,1 +1,14 @@
-<p>products-carousel works!</p>
+<section>
+  <hlm-carousel>
+    <hlm-carousel-content class="flex justify-center items-center w-full ml-0">
+      <hlm-carousel-item
+        class="pl-0 2xl:basis-1/4 max-md:basis-1/2 max-xl:basis-1/3"
+        *ngFor="let product of products"
+      >
+        <app-product-card [item]="product" />
+      </hlm-carousel-item>
+    </hlm-carousel-content>
+    <button hlm-carousel-previous></button>
+    <button hlm-carousel-next></button>
+  </hlm-carousel>
+</section>

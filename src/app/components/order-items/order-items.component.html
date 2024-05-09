@@ -1,0 +1,9 @@
+<section>
+  <div *ngIf="orderItems">
+    <app-order-card *ngFor="let item of orderItems" [item]="item" />
+  </div>
+
+  <div *ngIf="orderItems.length == 0">
+    <p class="text-foreground text-xl">There Are No Items Added to Cart...</p>
+  </div>
+</section>

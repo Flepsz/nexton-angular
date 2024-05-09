@@ -1,0 +1,77 @@
+<section class="flex justify-between gap-10" *ngIf="!isLoading">
+  <div class="flex flex-col divide-y">
+    <div
+      class="flex w-full justify-center items-center bg-foreground/5 rounded-xl relative mb-10"
+    >
+      <img
+        class="py-10 h-full mix-blend-multiply 2xl:py-20"
+        [src]="thumbnail"
+        [alt]="item.id + ' Img'"
+      />
+      <div
+        class="absolute inline-flex gap-1 items-center z-20 left-0 top-0 p-2.5 m-2 bg-white dark:bg-black rounded-full cursor-default hover:opacity-70"
+      >
+        <hlm-icon
+          size="sm"
+          name="lucideSparkles"
+          class="text-foreground dark:text-white"
+        />
+        <p class="text-foreground text-sm">New In</p>
+      </div>
+    </div>
+    <div class="pt-10 text-justify w-full" *ngIf="!isLoading">
+      <p class="text-foreground">{{ details }}</p>
+    </div>
+  </div>
+  <aside
+    class="inline-flex flex-col gap-4 w-[60%] h-full rounded-xl border border-foreground/5 p-5"
+  >
+    <h4 class="text-foreground text-xl font-semibold text-right">
+      {{ item.price | currency : "BRL" }}
+    </h4>
+    <div class="flex justify-between gap-5 max-xl:flex-col">
+      <app-counter-quantity
+        [quantity]="quantity"
+        (change)="onQuantityChange($event)"
+      />
+      <button
+        hlmBtn
+        (click)="handleAddToCart()"
+        variant="outline"
+        class="flex justify-center rounded-full bg-background text-foreground items-center gap-2 truncate"
+      >
+        <hlm-icon
+          class="text-foreground/70 transition-colors"
+          size="sm"
+          name="lucideShoppingBag"
+        />Add to cart
+      </button>
+    </div>
+    <div class="divide-y flex flex-col gap-2">
+      <div class="flex flex-col gap-1">
+        <div class="flex justify-between">
+          <p class="text-foreground/70">
+            {{ itemOrder.price | currency : "BRL" }} x {{ itemOrder.quantity }}
+          </p>
+          <p class="text-foreground/70">
+            {{ itemOrder.totalPrice | currency : "BRL" }}
+          </p>
+        </div>
+        <div class="flex justify-between">
+          <p class="text-foreground/70">Tax estimate</p>
+          <p class="text-foreground/70">{{ 0 | currency : "BRL" }}</p>
+        </div>
+      </div>
+      <div class="flex justify-between pt-2">
+        <p class="text-foreground font-semibold">Total</p>
+        <p class="text-foreground font-semibold">
+          {{ itemOrder.totalPrice | currency : "BRL" }}
+        </p>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section *ngIf="isLoading" class="flex justify-center items-center">
+  <hlm-spinner />
+</section>

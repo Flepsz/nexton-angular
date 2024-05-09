@@ -1,10 +1,14 @@
 <footer
-  class="flex flex-col w-full gap-20 bg-light-white items-center justify-start lg:px-20 py-10 px-5"
+  class="flex flex-col w-full gap-20 bg-light-white items-center justify-start lg:px-20 py-10 px-5 border-t border-foreground/10"
 >
   <div class="flex flex-col gap-12 w-full">
     <div class="flex flex-wrap justify-evenly">
       <app-logo />
-      <footer-column *ngFor="let links of footerLinks" [title]="links.title" [links]="links.links" />
+      <footer-column
+        *ngFor="let links of footerLinks"
+        [title]="links.title"
+        [links]="links.links"
+      />
     </div>
   </div>
   <div

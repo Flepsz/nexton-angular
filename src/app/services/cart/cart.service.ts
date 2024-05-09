@@ -7,7 +7,7 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 interface CartState {
   order: ItemOrder[];
   addToCart: (item: ItemOrder) => void;
-  removeFromCart: (item: ItemOrder) => void;
+  removeFromCart: (itemId: string) => void;
   decreaseQuantity: (itemId: string) => void;
   increaseQuantity: (itemId: string) => void;
 }
@@ -36,9 +36,9 @@ export class CartService extends ZustandBaseService<CartState> {
           }
         });
       },
-      removeFromCart: (item: ItemOrder) => {
+      removeFromCart: (itemId: string) => {
         set((state) => ({
-          order: state.order.filter((product) => product.id !== item.id),
+          order: state.order.filter((product) => product.id !== itemId),
         }));
       },
       decreaseQuantity: (itemId: string) => {
