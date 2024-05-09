@@ -1,0 +1,12 @@
+<button
+  routerLink="/cart"
+  class="flex justify-center relative p-2 rounded-lg transition-colors border border-foreground/5 hover:opacity-60"
+>
+  <hlm-icon class="text-foreground" size="base" name="lucideShoppingCart" />
+  <div
+    *ngIf="numberItems > 0"
+    class="flex absolute -right-1 -top-1 px-2 py-1 rounded-full bg-cyan-500"
+  >
+    <p class="text-white text-xs">{{ numberItems }}</p>
+  </div>
+</button>

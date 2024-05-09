@@ -60,6 +60,10 @@ body {
   @apply bg-background;
 }
 
+.container-section {
+  @apply flex flex-col gap-32 px-7 pt-14 mb-20 min-h-screen xl:px-32;
+}
+
 input,
 button,
 textarea,

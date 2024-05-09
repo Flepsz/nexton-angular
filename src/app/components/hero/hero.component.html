@@ -12,15 +12,19 @@
             <p class="text-zinc-700 text-sm lg:text-base">
               Starting from: $49.99
             </p>
-            <h1 class="text-indigo-950 font-semibold text-4xl lg:text-5xl 2xl:text-6xl">
+            <h1
+              class="text-indigo-950 font-semibold text-4xl lg:text-5xl 2xl:text-6xl"
+            >
               Exclusive collection for everyone
             </h1>
             <button
               hlmBtn
+              (click)="goToShop()"
               variant="outline"
               class="w-2/5 rounded-full bg-indigo-950 text-white font-light text-sm lg:text-base"
             >
-              Explore now <hlm-icon class="ml-3" size="sm" name="lucideSearch" />
+              Explore now
+              <hlm-icon class="ml-3" size="sm" name="lucideSearch" />
             </button>
           </div>
         </div>

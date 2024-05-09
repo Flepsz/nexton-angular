@@ -1,18 +1,29 @@
-<hero />
-<div class="flex flex-col gap-32 px-7 mb-20 xl:px-32">
-  <section class="pt-14">
+<hero search="Roupa preta inverno simples" />
+<div class="container-section">
+  <section>
     <app-brand-info />
   </section>
-  <section class="flex flex-col gap-5">
-    <h1 class="text-foreground text-3xl font-semibold lg:text-4xl 2xl:text-5xl">
-      Start exploring.
-      <span class="text-foreground/70">Good things are waiting for you</span>
-    </h1>
+  <section class="flex flex-col gap-5 xl:gap-10">
+    <title-bicolor
+      first="Start exploring."
+      second="Good things are waiting for you"
+    />
     <div class="w-[90%] mx-auto">
       <app-collections />
     </div>
   </section>
+  <section class="flex flex-col gap-5 xl:gap-10">
+    <title-bicolor
+      first="Recommendations."
+      second="Best matching products for you"
+    />
+    <app-products-carousel search="Relogio Preto" />
+  </section>
+  <section class="flex flex-col gap-5 xl:gap-10">
+    <title-bicolor first="Best Sellers." second="Best selling of the month" />
+    <app-products-carousel search="Camiseta Preta Basica" />
+  </section>
   <section>
-    <app-products-list />
+    <app-banner search="Roupa chronic" />
   </section>
 </div>

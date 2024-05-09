@@ -1,1 +1,26 @@
-<p>banner works!</p>
+<div class="relative rounded-3xl">
+  <img
+    src="/assets/banner.png"
+    class="flex items-center w-full justify-center rounded-3xl"
+    alt=""
+  />
+  <div class="absolute top-0 left-0 pl-20 h-full max-w-[50%]">
+    <div class="inline-flex flex-col gap-2 justify-center h-full lg:gap-3">
+      <p class="text-zinc-700 text-sm lg:text-base">100% Original Products</p>
+      <h1
+        class="text-indigo-950 font-semibold text-3xl lg:text-4xl 2xl:text-5xl"
+      >
+        The All New Fashion Collection Items
+      </h1>
+      <p class="text-zinc-700 text-sm lg:text-base">Starting from: $59.99</p>
+      <button
+        hlmBtn
+        (click)="goToShop()"
+        variant="outline"
+        class="w-3/12 py-2.5 rounded-full bg-indigo-950 text-white font-normal text-sm lg:text-base"
+      >
+        Shop now
+      </button>
+    </div>
+  </div>
+</div>

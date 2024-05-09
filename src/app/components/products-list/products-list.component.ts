@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { HlmSpinnerComponent } from '@spartan-ng/ui-spinner-helm';
 import { CommonModule } from '@angular/common';
@@ -13,6 +13,8 @@ import { Result } from '../../interfaces/result';
   styleUrl: './products-list.component.css',
 })
 export class ProductsListComponent implements OnInit {
+  @Input() search?: string;
+
   products!: Result[];
   isLoading: boolean = false;
 
@@ -24,9 +26,11 @@ export class ProductsListComponent implements OnInit {
 
   getProducts() {
     this.isLoading = true;
-    this._productsService.getProducts('Relogio').subscribe((data) => {
-      this.products = data.results;
-      this.isLoading = false;
-    });
+    this._productsService
+      .getProducts(this.search ? this.search : 'Relogio')
+      .subscribe((data) => {
+        this.products = data.results;
+        this.isLoading = false;
+      });
   }
 }

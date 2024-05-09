@@ -1,8 +1,9 @@
-<div>
-  <div class="flex justify-center items-center">
-    <hlm-spinner *ngIf="isLoading" />
-  </div>
-  <div *ngIf="!isLoading" class="flex flex-wrap justify-around gap-7 max-2xl:justify-between max-2xl:gap-5">
-    <app-product-card *ngFor="let product of products" [item]="product" />
-  </div>
+<div class="flex justify-center items-center">
+  <hlm-spinner *ngIf="isLoading" />
+</div>
+<div
+  *ngIf="!isLoading"
+  class="flex flex-wrap justify-center gap-7 max-2xl:gap-5"
+>
+  <app-product-card *ngFor="let product of products" [item]="product" />
 </div>

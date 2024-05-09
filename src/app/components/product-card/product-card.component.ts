@@ -41,7 +41,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   goToDetails() {
-    this._router.navigate([`/detail/${this.item.id}`], {
+    this._router.navigate([`/details/${this.item.id}`], {
       state: {
         item: this.item,
       },

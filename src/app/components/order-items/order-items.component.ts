@@ -12,8 +12,9 @@ import { ItemOrder } from '../../interfaces/item';
   styleUrl: './order-items.component.css',
 })
 export class OrderItemsComponent implements OnInit {
-  _cartService = inject(CartService);
   orderItems!: ItemOrder[];
+
+  _cartService = inject(CartService);
 
   order$ = this._cartService.useStore((state) => state.order);
 

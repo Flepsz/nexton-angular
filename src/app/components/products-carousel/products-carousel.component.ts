@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { HlmButtonModule } from '@spartan-ng/ui-button-helm';
 import {
   HlmCarouselComponent,
@@ -29,6 +29,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './products-carousel.component.css',
 })
 export class ProductsCarouselComponent {
+  @Input() search?: string;
+
   products!: Result[];
   isLoading: boolean = false;
 
@@ -40,9 +42,11 @@ export class ProductsCarouselComponent {
 
   getProducts() {
     this.isLoading = true;
-    this._productsService.getProducts('Relogio').subscribe((data) => {
-      this.products = data.results;
-      this.isLoading = false;
-    });
+    this._productsService
+      .getProducts(this.search ? this.search : 'Relogio')
+      .subscribe((data) => {
+        this.products = data.results;
+        this.isLoading = false;
+      });
   }
 }

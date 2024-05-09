@@ -1,72 +1,43 @@
-<section class="flex justify-between gap-10">
-  <div class="flex flex-col divide-y">
+<section class="flex gap-10 w-full">
+  <div class="flex justify-between gap-5 w-full">
     <div
-      class="flex w-full justify-center items-center bg-foreground/5 rounded-xl relative mb-10"
+      class="flex px-5 h-full justify-center items-center bg-foreground/5 rounded-2xl mb-10"
     >
       <img
-        class="py-10 h-full mix-blend-multiply 2xl:py-20"
+        class="size-20 mix-blend-multipl"
         [src]="item.thumbnail"
         [alt]="item.id + ' Img'"
       />
-      <div
-        class="absolute inline-flex gap-1 items-center z-20 left-0 top-0 p-2.5 m-2 bg-white dark:bg-black rounded-full cursor-default hover:opacity-70"
-      >
-        <hlm-icon
-          size="sm"
-          name="lucideSparkles"
-          class="text-foreground dark:text-white"
+    </div>
+    <div class="inline-flex justify-between flex-col w-full">
+      <h4 class="text-foreground text-xl font-semibold">
+        {{ item.title | truncate }}
+      </h4>
+      <div class="inline-flex gap-5">
+        <app-counter-quantity
+          [cart]="true"
+          [id]="item.id"
+          [quantity]="item.quantity"
+          (change)="onQuantityChange($event)"
         />
-        <p class="text-foreground text-sm">New In</p>
+        <button
+          hlmBtn
+          (click)="handleRemoveFromCart()"
+          variant="outline"
+          class="inline-flex p-3 justify-center rounded-full bg-red-500 text-white items-center gap-2 transition-colors hover:opacity-70"
+        >
+          <hlm-icon
+            class="text-white transition-colors"
+            size="sm"
+            name="lucideTrash"
+          />
+        </button>
       </div>
+    </div>
+    <div>
+      <h4 class="text-foreground text-xl font-semibold text-right">
+        {{ item.totalPrice | currency : "BRL" }}
+      </h4>
     </div>
   </div>
-  <aside
-    class="inline-flex flex-col gap-4 w-[60%] h-full rounded-xl border border-foreground/5 p-5"
-  >
-    <h4 class="text-foreground text-xl font-semibold text-right">
-      {{ item.price | currency : "BRL" }}
-    </h4>
-    <div class="flex justify-between gap-5 max-xl:flex-col">
-      <app-counter-quantity
-        [cart]="true"
-        [id]="item.id"
-        [quantity]="item.quantity"
-        (change)="onQuantityChange($event)"
-      />
-      <button
-        hlmBtn
-        (click)="handleRemoveFromCart()"
-        variant="outline"
-        class="inline-flex p-3 justify-center rounded-full bg-red-500 text-white items-center gap-2 truncate"
-      >
-        <hlm-icon
-          class="text-white transition-colors"
-          size="sm"
-          name="lucideTrash"
-        />
-      </button>
-    </div>
-    <div class="divide-y flex flex-col gap-2">
-      <div class="flex flex-col gap-1">
-        <div class="flex justify-between">
-          <p class="text-foreground/70">
-            {{ item.price | currency : "BRL" }} x {{ item.quantity }}
-          </p>
-          <p class="text-foreground/70">
-            {{ item.totalPrice | currency : "BRL" }}
-          </p>
-        </div>
-        <div class="flex justify-between">
-          <p class="text-foreground/70">Tax estimate</p>
-          <p class="text-foreground/70">{{ 0 | currency : "BRL" }}</p>
-        </div>
-      </div>
-      <div class="flex justify-between pt-2">
-        <p class="text-foreground font-semibold">Total</p>
-        <p class="text-foreground font-semibold">
-          {{ item.totalPrice | currency : "BRL" }}
-        </p>
-      </div>
-    </div>
-  </aside>
 </section>

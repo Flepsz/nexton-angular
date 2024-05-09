@@ -10,6 +10,7 @@ interface CartState {
   removeFromCart: (itemId: string) => void;
   decreaseQuantity: (itemId: string) => void;
   increaseQuantity: (itemId: string) => void;
+  resetOrder: () => void;
 }
 
 @Injectable({
@@ -39,6 +40,11 @@ export class CartService extends ZustandBaseService<CartState> {
       removeFromCart: (itemId: string) => {
         set((state) => ({
           order: state.order.filter((product) => product.id !== itemId),
+        }));
+      },
+      resetOrder: () => {
+        set((state) => ({
+          order: (state.order = []),
         }));
       },
       decreaseQuantity: (itemId: string) => {

@@ -1,3 +1,37 @@
-<div>
-  <app-order-items />
+<div class="container-section">
+  <div *ngIf="orderItems.length > 0" class="flex flex-col gap-5">
+    <title-bicolor first="Order summary" />
+    <app-order-items />
+    <div class="flex flex-col gap-5">
+      <div class="flex justify-between">
+        <p class="text-foreground/70">Subtotal</p>
+        <p class="text-foreground/70">
+          {{ subTotalPriceSum | currency : "BRL" }}
+        </p>
+      </div>
+      <div class="flex justify-between">
+        <p class="text-foreground/70">Shipping estimate</p>
+        <p class="text-foreground/70">
+          {{ 5 | currency : "BRL" }}
+        </p>
+      </div>
+      <div class="flex justify-between">
+        <p class="text-foreground/70">Tax estimate</p>
+        <p class="text-foreground/70">
+          {{ 24.9 | currency : "BRL" }}
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-between">
+      <p class="text-foreground">Order total</p>
+      <p class="text-foreground">
+        {{ totalPriceSum | currency : "BRL" }}
+      </p>
+    </div>
+    <button hlmBtn (click)="handleResetOrder()" variant="default">Confirm order</button>
+  </div>
+
+  <div *ngIf="orderItems.length == 0">
+    <p class="text-foreground text-xl">There Are No Items Added to Cart...</p>
+  </div>
 </div>
