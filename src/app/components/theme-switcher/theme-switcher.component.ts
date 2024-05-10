@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { HlmSwitchComponent } from '@spartan-ng/ui-switch-helm';
 import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
-import { ThemeService } from '../../../../libs/theme/theme.service';
+import { ThemeService } from '@libs/theme-service';
 import { Subscription } from 'rxjs';
 
 @Component({
