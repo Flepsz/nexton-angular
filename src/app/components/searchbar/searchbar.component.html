@@ -1,0 +1,20 @@
+<form
+  [formGroup]="searchForm"
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+  novalidate
+  class="inline-flex items-center w-full max-w-lg space-x-2 relative"
+>
+  <input
+    hlmInput
+    (keyup.enter)="onEnter()"
+    type="text"
+    placeholder="Search"
+    formControlName="search"
+  />
+  <button
+    class="flex absolute right-0 px-2 py-0 rounded-full transition-colors hover:text-foreground/60"
+  >
+    <hlm-icon size="sm" name="lucideSearch" />
+  </button>
+</form>

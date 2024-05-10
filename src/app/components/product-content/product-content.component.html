@@ -26,9 +26,14 @@
   <aside
     class="inline-flex flex-col gap-4 w-[60%] h-full rounded-xl border border-foreground/5 p-5"
   >
-    <h4 class="text-foreground text-xl font-semibold text-right">
-      {{ item.price | currency : "BRL" }}
-    </h4>
+    <div class="flex justify-between gap-20">
+      <h4 class="text-foreground text-xl font-semibold truncate">
+        {{ item.title }}
+      </h4>
+      <h4 class="text-foreground text-xl font-semibold">
+        {{ item.price | currency : "BRL" }}
+      </h4>
+    </div>
     <div class="flex justify-between gap-5 max-xl:flex-col">
       <app-counter-quantity
         [quantity]="quantity"

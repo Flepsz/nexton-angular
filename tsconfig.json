@@ -48,6 +48,9 @@
       ],
       "@libs/theme-service": [
         ".\\src/libs//theme/theme.service"
+      ],
+      "@spartan-ng/ui-input-helm": [
+        ".\\src/libs/ui/ui-input-helm/src/index.ts"
       ]
     }
   },

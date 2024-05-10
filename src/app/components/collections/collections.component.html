@@ -7,8 +7,12 @@
       <h4 class="font-semibold text-lg text-foreground">{{ item.title }}</h4>
       <p class="text-foreground/70 text-sm">{{ item.desc }}</p>
     </div>
-    <div class="flex gap-1 items-center pl-2 transition-opacity hover:opacity-70">
-      <a [routerLink]="item.href" class="text-xs text-foreground/70 uppercase"
+    <div
+      class="flex gap-1 cursor-pointer items-center pl-2 transition-opacity hover:opacity-70"
+    >
+      <a
+        (click)="navigateShop(item.href)"
+        class="text-xs text-foreground/70 uppercase"
         >Shop Now</a
       >
       <hlm-icon size="sm" name="lucideArrowRight" class="text-foreground/70" />
